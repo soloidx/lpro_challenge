@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "lpro-backend"
+version = "0.1.0"
+description = ""
+authors = ["Ider Delzo <soloidx@gmail.com>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.1.7"
+django-environ = "^0.10.0"
+psycopg-binary = "^3.1.8"
+django-ninja = "^0.21.0"
+pydantic = {extras = ["email"], version = "^1.10.6"}
+requests = "^2.28.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
