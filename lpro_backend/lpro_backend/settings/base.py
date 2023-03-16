@@ -82,7 +82,7 @@ WSGI_APPLICATION = "lpro_backend.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db_url("DATABASE_URL", default=BASE_DIR / "db.sqlite3"),
+    "default": env.db_url("DATABASE_URL", default=f"sqlite:///{BASE_DIR}/db.sqlite3"),
 }
 
 
@@ -130,3 +130,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "core.User"
 
 RANDOM_SERVICE_ENDPOINT = env("RANDOM_SERVICE_ENDPOINT")
+RANDOM_STRING_LENGTH = env("RANDOM_STRING_LENGTH", default=10)
