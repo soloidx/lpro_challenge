@@ -3,7 +3,7 @@ from ninja import NinjaAPI
 from api.v1 import v1_router
 from calculator.exceptions import OperationInvalid, OperationServiceProblem, OperationRateLimitExceeded
 
-api = NinjaAPI(csrf=True)
+api = NinjaAPI()
 
 
 @api.get("/")
