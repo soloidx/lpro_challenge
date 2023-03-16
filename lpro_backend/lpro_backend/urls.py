@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from api import api
+from django.conf import settings
 
 
 urlpatterns = [
@@ -23,3 +24,6 @@ urlpatterns = [
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('', api.urls),
 ]
+
+if settings.SILK_ENABLED:
+    urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]
