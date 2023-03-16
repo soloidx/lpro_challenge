@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "oauth2_provider",
     "core",
     "calculator",
 ]
@@ -131,3 +132,5 @@ AUTH_USER_MODEL = "core.User"
 
 RANDOM_SERVICE_ENDPOINT = env("RANDOM_SERVICE_ENDPOINT")
 RANDOM_STRING_LENGTH = env("RANDOM_STRING_LENGTH", default=10)
+
+LOGIN_URL='/admin/login/'

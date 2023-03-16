@@ -1,9 +1,9 @@
 from ninja import NinjaAPI
 
 from api.v1 import v1_router
-from calculator.exceptions import OperationInvalid, OperationServiceProblem
+from calculator.exceptions import OperationInvalid, OperationServiceProblem, OperationRateLimitExceeded
 
-api = NinjaAPI()
+api = NinjaAPI(csrf=True)
 
 
 @api.get("/")
@@ -35,4 +35,11 @@ def handle_invalid_operation(request, exc):
 def handle_service_problem(request, exc):
     return api.create_response(
         request, simple_error_response(str(exc), err_type="internal_error"), status=500
+    )
+
+
+@api.exception_handler(OperationRateLimitExceeded)
+def handle_rate_limit(request, exc):
+    return api.create_response(
+        request, simple_error_response(str(exc), err_type="user_error"), status=402
     )

@@ -4,3 +4,7 @@ class OperationInvalid(Exception):
 
 class OperationServiceProblem(Exception):
     pass
+
+
+class OperationRateLimitExceeded(Exception):
+    pass

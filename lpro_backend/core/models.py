@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from calculator.exceptions import OperationRateLimitExceeded
 
 
 class UserManager(BaseUserManager):
@@ -28,3 +29,15 @@ class User(AbstractUser):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
+
+    def check_balance(self, amount):
+        if self.balance < amount:
+            raise OperationRateLimitExceeded("The user has insufficient balance.")
+
+    def discount(self, amount):
+        if self.balance < amount:
+            raise OperationRateLimitExceeded("The user has insufficient balance.")
+        self.balance -= amount
+        self.save()
+
+
