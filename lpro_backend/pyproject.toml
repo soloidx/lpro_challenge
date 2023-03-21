@@ -21,6 +21,7 @@ django-oauth-toolkit = "^2.2.0"
 pytest = "^7.2.2"
 pytest-django = "^4.5.2"
 django-silk = "^5.0.3"
+pytest-cov = "^4.0.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -28,3 +29,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "lpro_backend.settings.local"
+addopts = "--cov=. --cov-report term-missing:skip-covered --cov-fail-under 100"

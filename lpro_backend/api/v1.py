@@ -54,4 +54,4 @@ def calculate(request, operation_request: OperationRequest):
 @paginate
 def records(request):
     user: User = request.auth
-    return user.records.select_related('operation').all()
+    return user.records.select_related("operation").all()

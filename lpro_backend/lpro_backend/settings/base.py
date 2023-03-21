@@ -122,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -133,6 +134,6 @@ AUTH_USER_MODEL = "core.User"
 RANDOM_SERVICE_ENDPOINT = env("RANDOM_SERVICE_ENDPOINT")
 RANDOM_STRING_LENGTH = env("RANDOM_STRING_LENGTH", default=10)
 
-LOGIN_URL='/admin/login/'
+LOGIN_URL = "/admin/login/"
 
 SILK_ENABLED = False
