@@ -1,0 +1,10 @@
+{
+    "dev": {
+        "aws_region": "us-east-1",
+        "django_settings": "lpro_backend.settings.prod",
+        "profile_name": "default",
+        "project_name": "lpro-backend",
+        "runtime": "python3.9",
+        "s3_bucket": "soloidx-zappa-lpro-storage"
+    }
+}
